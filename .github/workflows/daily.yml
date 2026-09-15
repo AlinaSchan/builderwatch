@@ -1,0 +1,30 @@
+name: daily snapshot
+
+# one hour of blocks once a night into data/daily.csv: one row per builder with its blocks, share,
+# how full its blocks were, the median base fee, and the slots of the window that got no block.
+# headers only, from a public json-rpc endpoint. no keys.
+
+on:
+  schedule:
+    - cron: "43 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: python -m builderwatch --since 1h --summary-append data/daily.csv --quiet
+      - name: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/daily.csv
+          git diff --cached --quiet || git commit -m "data: snapshot $(date -u +%F)"
+          git push
