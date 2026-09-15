@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "builderwatch"
+version = "0.1.0"
+description = "who built the last blocks of ethereum: the builder each block names in its extra data, the fee recipient, how full the blocks were, the slots that got no block. from a public rpc, no keys."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Alina Schanz" }]
+keywords = ["ethereum", "mev", "block-builders", "mev-boost", "pbs", "cli"]
+classifiers = [
+  "Environment :: Console",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Utilities",
+]
+
+[project.urls]
+Homepage = "https://github.com/alinaschanz/builderwatch"
+Author = "https://alinaschanz.life"
+Issues = "https://github.com/alinaschanz/builderwatch/issues"
+Changelog = "https://github.com/alinaschanz/builderwatch/blob/main/CHANGELOG.md"
+
+[project.scripts]
+builderwatch = "builderwatch.cli:main"
+
+[tool.setuptools]
+packages = ["builderwatch"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "RUF"]
