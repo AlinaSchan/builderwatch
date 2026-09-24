@@ -1,10 +1,10 @@
 # builderwatch
 
-[![ci](https://github.com/alinaschanz/builderwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/alinaschanz/builderwatch/actions/workflows/ci.yml)
+[![ci](https://github.com/AlinaSchan/builderwatch/actions/workflows/ci.yml/badge.svg)](https://github.com/AlinaSchan/builderwatch/actions/workflows/ci.yml)
 ![python 3.10+](https://img.shields.io/badge/python-3.10%2B-3776ab)
 ![license mit](https://img.shields.io/badge/license-MIT-2b7a74)
-[![release](https://img.shields.io/github/v/release/alinaschanz/builderwatch?color=2b7a74)](https://github.com/alinaschanz/builderwatch/releases)
-[![openssf scorecard](https://api.scorecard.dev/projects/github.com/alinaschanz/builderwatch/badge)](https://scorecard.dev/viewer/?uri=github.com/alinaschanz/builderwatch)
+[![release](https://img.shields.io/github/v/release/AlinaSchan/builderwatch?color=2b7a74)](https://github.com/AlinaSchan/builderwatch/releases)
+[![openssf scorecard](https://api.scorecard.dev/projects/github.com/AlinaSchan/builderwatch/badge)](https://scorecard.dev/viewer/?uri=github.com/AlinaSchan/builderwatch)
 
 who built the last blocks of ethereum. every block header carries 32 bytes of `extraData`, and a
 builder writes its name there; a validator that builds its own block leaves whatever its client
@@ -40,7 +40,7 @@ pays, a local node takes what its own mempool saw. three slots in the hour got n
 ## install
 
 ```
-pipx install git+https://github.com/alinaschanz/builderwatch
+pipx install git+https://github.com/AlinaSchan/builderwatch
 ```
 
 or clone it and run `python -m builderwatch` from the folder. python 3.10 or newer, no dependencies.
@@ -103,8 +103,8 @@ are in [data/README.md](data/README.md); a rerun for the same day replaces the d
 
 ## see also
 
-- [blobwatch](https://github.com/alinaschanz/blobwatch): who bought the blob space in the same blocks
-- [gasweek](https://github.com/alinaschanz/gasweek): the base fee those blocks charged, by hour of day
+- [blobwatch](https://github.com/AlinaSchan/blobwatch): who bought the blob space in the same blocks
+- [gasweek](https://github.com/AlinaSchan/gasweek): the base fee those blocks charged, by hour of day
 - the notes: [alinaschanz.life](https://alinaschanz.life), the short version on [x](https://x.com/alinaschanz)
 
 ## verify a release
@@ -114,7 +114,7 @@ file, and a build provenance attestation made in github's own signing flow. with
 into one folder:
 
     sha256sum -c SHA256SUMS
-    gh attestation verify ./*.whl --owner alinaschanz
+    gh attestation verify ./*.whl --owner AlinaSchan
     ots verify SHA256SUMS.ots
 
 the commit itself is [signed](https://alinaschanz.life/verify/#commits).
